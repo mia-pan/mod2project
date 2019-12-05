@@ -1,0 +1,23 @@
+<!-- <h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p> -->
+<h1>hi, Here is my user's new page </h1>
+<%= form_for(@user) do |f|  %>
+	<%= f.label :name %>
+	<%= f.text_field :name %><br><br>
+
+	<%= f.label :age %>
+    <%= f.text_field :age %><br><br>
+
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: 'Enter your email...' %><br><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br><br>
+    
+    <%= f.label :avatar %> 
+    <%= f.file_field :avatar %> 
+
+
+    <%= f.submit 'Submit'%>
+
+<% end %>

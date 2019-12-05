@@ -1,0 +1,6 @@
+<h1>hi, this is my categories's show page</h1>
+<%= @category.name %>
+<%  @category.posts.each do |post| %>
+<%= link_to post.name, post %>
+<%= link_to post.product.name, post.product %>
+<% end %>

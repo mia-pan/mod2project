@@ -1,0 +1,18 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+<h1>hey, welcome to my post's new page</h1>
+<%= form_for(@post) do |f|  %>
+	<%= f.label :likes %>
+	<%= f.text_field :likes  %><br><br>
+
+	<%= f.label :post_datetime %>
+    <%= f.text_field :post_datetime %><br><br>
+
+    <%= f.label :avatar %> 
+    <%= f.file_field :avatar %>
+    
+    <%= f.label :category_name %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <%= f.submit 'Submit'%>
+
+<% end %>
