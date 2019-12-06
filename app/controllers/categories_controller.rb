@@ -1,17 +1,23 @@
 class CategoriesController < ApplicationController
   def index
-    if session[:user_id] == nil
-      redirect_to "/users/new"
-    end
+    # if session[:user_id] == nil
+    #   redirect_to "/users/new"
+    # end
     @categories = Category.all
   end
+
+  def new 
+    @category = Category.new 
+  end 
 
   def show 
     @category = Category.find(params[:id])
   end 
 
   def create 
-    Category.create(category_params)
+    @category = Category.create(category_params)
+    @category.save
+    redirect_to @category 
   end 
 
   def category_params

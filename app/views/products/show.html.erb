@@ -1,2 +1,14 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>product show page</h1>
+<%= @product.name %> <br><br>
+<%= @product.brand.name %><br><br>
+<% @product.posts.each do |post| %> 
+  <%= post.user.name %><br><br>
+  <%= post.user.age %> <br><br>
+  <%= post.review %><br><br>
+<% end %>
+
+<%= form_tag product_path(@product.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@product.name}" %>
+<% end %>
+
+<%= render "text" %>

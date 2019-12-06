@@ -8,6 +8,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div class="product review">
+      <a href="http://localhost:3000/products" class="item">
+        <h1>Product review</h1>
+      </a>
+        <div class="right menu">
+          <% if logged_in?%>
+            <%= link_to 'Create a New user', new_user_path, {class: 'item'} %>
+            <%= link_to 'Logout', logout_path, {class: 'item'} %>
+          <% end %>
+        </div>
+    </div>
 
   <body>
     <%= yield %>

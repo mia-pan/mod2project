@@ -1,6 +1,7 @@
 <h1>hi, this is my categories's show page</h1>
-<%= @category.name %>
-<%  @category.posts.each do |post| %>
-<%= link_to post.name, post %>
-<%= link_to post.product.name, post.product %>
+<h1><%= @category.name %><br><br></h1>
+<%  @category.products.each do |product| %>
+<%= link_to product.name, product %><br><br>
 <% end %>
+<%= button_to "Create a product review?", new_post_path, :method => :get %><br>
+<%= button_to "want to create a new product first?", new_product_path, :method => :get %>

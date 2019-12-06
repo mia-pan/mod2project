@@ -1,7 +1,13 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
-<%= @post.post_datetime.strftime("%B %d, %Y at %k:%M") %>
+<%= @post.post_datetime.strftime("%B %d, %Y at %k:%M") %><br><br>
+
+<%= @post.review %><br><br>
+
 <%= @post.likes %><br><br>
 
-<%= link_to @blogger.featured_post.title, post_path(@blogger.featured_post) %>
+<%= form_tag post_path(@post.id), method: "delete" do %>
+  <%= submit_tag "Delete #{@post.review}" %>
+<% end %>
+

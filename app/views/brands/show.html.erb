@@ -1,0 +1,7 @@
+<h1>here is the brand's products and their category</h1>
+
+<% @brand.products.each do |product| %>
+<%= product.name %><br><br>
+<%= product.category.name %><br><br>
+
+<% end %> 

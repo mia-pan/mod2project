@@ -10,16 +10,23 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    session[:user_id] = @user.id
-    redirect_to @user
+    # session[:user_id] = @user.id
+    redirect_to categories_path
   end
+
+  def login 
+  @user = User.find_by(params[:user_name])
+
+  session[:user_id] = @user.id
+  redirect_to @category 
+end
 
   def destroy
   end
 
   private 
   def user_params
-    params.require(:user).permit(:name, :age, :follower_name, :email, :password_digest, :avatar)
+    params.require(:user).permit(:name, :age, :follower_name, :email, :password, :avatar)
   end 
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_224327) do
+ActiveRecord::Schema.define(version: 2019_12_05_195550) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,18 +33,32 @@ ActiveRecord::Schema.define(version: 2019_12_04_224327) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories_posts", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
+    t.string "review"
     t.integer "likes"
     t.datetime "post_datetime"
     t.integer "user_id"
     t.integer "product_id"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,15 +66,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_224327) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "content"
-    t.datetime "pulished_date"
-    t.integer "product_id"
-    t.string "comment"
+    t.integer "brand_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

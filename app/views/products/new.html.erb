@@ -1,2 +1,19 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>hey, welcome to my product's new page</h1>
+<% @product.posts.each do |post| %>
+<%= post.user.name %>
+<% end %>
+<%= render partial: "text" %>
+<%= form_for(@product) do |f|  %>
+
+	<%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+
+    <%= f.label :category_name %>
+    <%= f.collection_check_boxes :category_id, Category.all, :id, :name %><br><br>
+
+    <%= f.label :brand_name %>
+    <%= f.collection_check_boxes :brand_id, Brand.all, :id, :name %><br><br>
+    
+    <%= f.submit 'Submit'%>
+
+<% end %>
